@@ -43,6 +43,17 @@ app.put("/api/v1/genres/:id",(req,res) => {
     }
 
 });
-// app.delete();
+
+app.delete("/api/v1/genres/:id", (req,res) => {
+    let genre = genreList.find(gen => gen.id === parseInt(req.params.id))
+    if(!genre){
+        return res.status(404).send("This id is not found !!");
+    }
+    const index = genreList.indexOf(genre);
+    genreList.splice(index,1);
+    res.send(genre);
+});
+
+
 
 app.listen(PORT, () => console.log(`Listening on Port ${PORT}`));

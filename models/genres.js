@@ -27,4 +27,5 @@ function isValid(req) {
 }
 
 exports.Genre = Genre;
+exports.GenreSchema = GenreSchema;
 exports.validate = isValid;

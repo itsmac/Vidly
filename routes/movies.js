@@ -23,7 +23,7 @@ router.post("/", async(req, res)=>{
         },
         numberInStock : req.body.numberInStock,
         dailyRentalRate : req.body.dailyRentalRate
-    });``
+    });
     const result = await newMovie.save();
     res.send(result);
 });

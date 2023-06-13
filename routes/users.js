@@ -23,7 +23,9 @@ router.post("/", async(req, res)=>{
 
     user.password = hashedPassword;
     await user.save();
-    res.send(_.pick(user, ['_id', 'name', 'email']));
+
+    const token = user.generateAuthToken();
+    res.header('x-auth-header', token).send(_.pick(user, ['_id', 'name', 'email']));
 });
 
 module.exports = router;
